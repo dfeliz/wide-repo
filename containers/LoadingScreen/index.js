@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import LoadingBar from './Loader';
 import { Button } from '../../components'
 
-const LoadingScreen = () => {
+const LoadingScreen = ({
+  onNextClick,
+}) => {
   const [percentage, setPercentage] = useState(0);
   const [startButtonVisible, setStartButtonVisible] = useState(false);
 
@@ -25,7 +27,7 @@ const LoadingScreen = () => {
   }
 
   const handleStartClick = () => {
-    console.log("This should remove this loading screen")
+    onNextClick();
   }
 
   return (
