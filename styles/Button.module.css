@@ -1,0 +1,27 @@
+.cButtonContainer {
+  display: flex;
+  height: 118px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.cButton {
+  height: 48px;
+  width: 300px;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  color: #fafafa;
+  padding: 0 10px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background-color: #2F3136;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cButton:hover {
+  background-color: #202225;
+}
