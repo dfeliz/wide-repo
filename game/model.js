@@ -1,5 +1,7 @@
+import { STATES } from './constants';
+
 export const gameInitialState = {
-  stage: "",
+  stage: STATES.START,
   points: 0,
   found: false,
 }

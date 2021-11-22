@@ -4,10 +4,15 @@ import { STATES } from '../game/constants';
 import { Loading, Prize, Game } from '../containers';
 
 export default function Home() {
-  // update ui using a counter... maybe? only if import doesnt work
+  // update ui using a counter... maybe?
+  //   only if updating the imported state doesn't update the ui,
+  //   which is highly probable
 
   const handleNextStage = () => {
-    goToNextState(gameState);
+    console.log("[Home]: Old state: ", gameState);
+    console.log("[Home]: Moving to next stage...");
+    const newState = goToNextState(gameState);
+    console.log("[Home]: 🚀 | handleNextStage | newState", newState)
   }
 
   const renderStage = () => {
@@ -23,7 +28,7 @@ export default function Home() {
       case STATES.PRIZE:
         return <Prize onNextClick={handleNextStage} />
       default:
-        throw new Error(`Unknown stage: ${gameState.stage}`);
+        throw new Error(`Unknown stage: "${gameState.stage}"`);
     }
   }
 

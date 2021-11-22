@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import { gameInitialState } from './model';
 import { STATES } from './constants';
+import { gameInitialState } from './model';
 
-let gameState = {};
+export let gameState = {};
 let setGameState = () => {};
 
 export const useGameState = () => {
   console.log("[Game state machine]: Initialized");
   [gameState, setGameState] = useState(gameInitialState);
-}
-
-export const getGameState = () => {
-  return gameState;
 }
 
 export const goToNextState = (actualGameState) => {
