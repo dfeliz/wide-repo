@@ -37,12 +37,12 @@ const LoadingScreen = ({
       <br></br>
       <p>
         Instructions: 
-        <ul>
-          <li>Find Wilmor a few times and you'll get a prize.</li>
-          <li>You have a limited time of 5 minutes to complete the game.</li>
-          <li>You MUST enjoy it.</li>
-        </ul>
       </p>
+      <ul>
+        <li>Find Wilmor a few times and you'll get a prize.</li>
+        <li>You have a limited time of 5 minutes to complete the game.</li>
+        <li>You MUST enjoy it.</li>
+      </ul>
       <br></br><br></br><br></br>
       {
         startButtonVisible

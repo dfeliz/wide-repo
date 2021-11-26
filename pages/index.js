@@ -9,10 +9,7 @@ export default function Home() {
   //   which is highly probable
 
   const handleNextStage = () => {
-    console.log("[Home]: Old state: ", gameState);
-    console.log("[Home]: Moving to next stage...");
-    const newState = goToNextState(gameState);
-    console.log("[Home]: 🚀 | handleNextStage | newState", newState)
+    goToNextState(gameState);
   }
 
   const renderStage = () => {

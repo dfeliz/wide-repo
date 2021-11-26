@@ -12,46 +12,42 @@ export const useGameState = () => {
 
 export const goToNextState = (actualGameState) => {
   const { stage, points, found } = actualGameState;
-
-  let nextGameState = { stage: STATES.START, points: 0, found: false };
-
+  console.log("🚀 | goToNextState | actualGameState", actualGameState);
+  
+  let nextGameState = { stage: STATES.START, points: 0 };
+  
   switch (stage) {
     case STATES.START:
       nextGameState.stage = STATES.STAGE1;
-      return nextGameState;
-    case STATES.STAGE1:
+      break;
+      case STATES.STAGE1:
       if (found === true) {
         nextGameState.stage = STATES.STAGE2;
         nextGameState.points = 100;
-        nextGameState.found = false;
         break;
       }
     case STATES.STAGE2:
-      if (found === true && points === 100) {
+      if (points === 100) {
         nextGameState.stage = STATES.STAGE3;
         nextGameState.points = 200;
-        nextGameState.found = false;
         break;
       }
     case STATES.STAGE3:
-      if (found === true && points === 200) {
+      if (points === 200) {
         nextGameState.stage = STATES.STAGE4;
         nextGameState.points = 300;
-        nextGameState.found = false;
         break;
       }
     case STATES.STAGE4:
-      if (found === true && points === 300) {
+      if (points === 300) {
         nextGameState.stage = STATES.STAGE5;
         nextGameState.points = 400;
-        nextGameState.found = false;
         break;
       }
     case STATES.STAGE5:
-      if (found === true && points === 400) {
+      if (points === 400) {
         nextGameState.stage = STATES.PRIZE;
         nextGameState.points = 500;
-        nextGameState.found = false;
         break;
       }
     case STATES.PRIZE:
@@ -60,6 +56,7 @@ export const goToNextState = (actualGameState) => {
       throw new Error(`Invalid game state. ${actualGameState}`);
   }
 
+  console.log("🚀 | goToNextState | nextGameState", nextGameState);
   setGameState(nextGameState);
   return nextGameState;
 }
