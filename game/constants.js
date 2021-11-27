@@ -10,5 +10,8 @@ export const STATES = {
 
 export const funFacts = [
   "Wilmor would still be with Fabiola, even if she was a gold skulltula in the night.",
-  "Wilmor would still be with Fabiola, even if she needed fuel."
+  "Wilmor would still be with Fabiola, even if she needed fuel.",
+  "tollazo.",
+  "I ran out of ideas.",
+  `In the phrase "Pero Dios mio, Daniel, wow", the word "wow" was invented by The Rock.`,
 ];

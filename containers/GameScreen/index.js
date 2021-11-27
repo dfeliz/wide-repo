@@ -1,39 +1,55 @@
 import Img from 'next/image';
-import { useEffect, useRef, useState, forwardRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { LEVEL_MAPS } from "./constants";
-import { gameState, goToNextState } from "../../game/gameStateMachine";
 import { Objective } from '../../components'
+import { getRandomPositionOfArea } from './helpers';
+import { gameState, goToNextState } from "../../game/gameStateMachine";
 
 const GameScreen = () => {
-
-  // const imgRef = useRef(null);
-  // const [imgRect, setImgRect] = useState(null);
+  const [objectivePosition, setObjectivePosition] = useState({ x: 0, y: 0 });
+  const [imgRect, setImgRect] = useState(null);
+  
+  const imgRef = useRef(null);
 
   useEffect(() => {
-    // if (imgRef.current) {
-    //   setImgRect(imgRef.current.getBoundingClientRect());
-    // }
-  }, []);
+    console.log("[GameScreen]: Updating level rect...");
+    const img = imgRef.current;
+    if (img) {
+      setImgRect(img.getBoundingClientRect());
+    }
+  }, [gameState.stage, imgRef]);
+
+  useEffect(() => {
+    console.log("[GameScreen]: Updating objective position...")
+    if (imgRect) {
+      setObjectivePosition(getRandomPositionOfArea(imgRect));
+    }
+  }, [imgRect]);
 
   const handleLevelClear = () => {
-      goToNextState(gameState);
+    goToNextState(gameState);
   }
   
   const renderObjective = () => {
-    // console.log(imgRect);
-    return <Objective onClick={handleLevelClear} />
+    return (
+      <Objective
+        onClick={handleLevelClear}
+        position={objectivePosition}
+      />
+    )
   }
   
   return (
     <div>
       {renderObjective()}
-      <Img
-        priority
-        // ref={imgRef}
-        src={LEVEL_MAPS[gameState.stage]}
-        width={document.body.offsetWidth}
-        height={document.body.offsetHeight}
-      />
+      <div ref={imgRef}>
+        <Img
+          priority
+          src={LEVEL_MAPS[gameState.stage]}
+          width={document.body.offsetWidth}
+          height={document.body.offsetHeight}
+        />
+      </div>
     </div>
   )
 }

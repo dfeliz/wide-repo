@@ -4,10 +4,15 @@ import objectiveImage from '../../images/objective.png';
 
 const Objective = ({
   onClick,
+  position,
 }) => {
 
   return (
-    <div className={styles.objectiveContainer} onClick={onClick}>
+    <div
+      onClick={onClick}
+      className={styles.objectiveContainer}
+      style={{ position: 'absolute', top: position.y, left: position.x, zIndex: 1000 }}
+    >
       <Img
         width={20}
         height={30}

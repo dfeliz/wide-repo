@@ -18,11 +18,11 @@ export default function Home() {
     switch (gameState.stage) {
       case STATES.START:
         return <Loading onNextClick={handleNextStage} />
-      case STATES.STAGE1
-        || STATES.STAGE2
-        || STATES.STAGE3
-        || STATES.STAGE4
-        || STATES.STAGE5:
+      case STATES.STAGE1:
+      case STATES.STAGE2:
+      case STATES.STAGE3:
+      case STATES.STAGE4:
+      case STATES.STAGE5:
         return <Game onNextClick={handleNextStage} />
       case STATES.PRIZE:
         return <Prize onNextClick={handleNextStage} />

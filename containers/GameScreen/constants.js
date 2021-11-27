@@ -1,13 +1,15 @@
 import { STATES } from '../../game/constants';
-import stage1 from '../../images/stage-a.jpeg';
-import stage2 from '../../images/stage-b.jpg';
-import stage3 from '../../images/stage-c.jpg';
-import stage4 from '../../images/stage-d.jpg';
+import waldo from '../../images/waldo.jpg';
+import beach from '../../images/beach.jpg';
+import concert from '../../images/concert.png';
+import marchaVenezuela from '../../images/marcha_vzla.jpg';
+import marchaVenezuelaPeroConUnPuentexD from '../../images/marcha_vzla_puente.jpg';
 
 
 export const LEVEL_MAPS = {
-  [STATES.STAGE1]: stage1,
-  [STATES.STAGE2]: stage2,
-  [STATES.STAGE3]: stage3,
-  [STATES.STAGE4]: stage4,
+  [STATES.STAGE1]: concert,
+  [STATES.STAGE2]: marchaVenezuela,
+  [STATES.STAGE3]: waldo,
+  [STATES.STAGE4]: beach,
+  [STATES.STAGE5]: marchaVenezuelaPeroConUnPuentexD,
 }
