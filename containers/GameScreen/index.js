@@ -13,7 +13,6 @@ const GameScreen = () => {
     // if (imgRef.current) {
     //   setImgRect(imgRef.current.getBoundingClientRect());
     // }
-    console.log("🚀 | handleLevelClear | gameState", gameState);
   }, []);
 
   const handleLevelClear = () => {

@@ -10,42 +10,37 @@ export const useGameState = () => {
   [gameState, setGameState] = useState(gameInitialState);
 }
 
-export const goToNextState = (actualGameState) => {
-  const { stage, points, found } = actualGameState;
-  console.log("🚀 | goToNextState | actualGameState", actualGameState);
+export const goToNextState = (actualGameState) => {  
+  let nextGameState = { stage: null, points: 0 };
   
-  let nextGameState = { stage: STATES.START, points: 0 };
-  
-  switch (stage) {
+  switch (actualGameState.stage) {
     case STATES.START:
       nextGameState.stage = STATES.STAGE1;
       break;
-      case STATES.STAGE1:
-      if (found === true) {
-        nextGameState.stage = STATES.STAGE2;
-        nextGameState.points = 100;
-        break;
-      }
+    case STATES.STAGE1:
+      nextGameState.stage = STATES.STAGE2;
+      nextGameState.points = 100;
+      break;
     case STATES.STAGE2:
-      if (points === 100) {
+      if (actualGameState.points === 100) {
         nextGameState.stage = STATES.STAGE3;
         nextGameState.points = 200;
         break;
       }
     case STATES.STAGE3:
-      if (points === 200) {
+      if (actualGameState.points === 200) {
         nextGameState.stage = STATES.STAGE4;
         nextGameState.points = 300;
         break;
       }
     case STATES.STAGE4:
-      if (points === 300) {
+      if (actualGameState.points === 300) {
         nextGameState.stage = STATES.STAGE5;
         nextGameState.points = 400;
         break;
       }
     case STATES.STAGE5:
-      if (points === 400) {
+      if (actualGameState.points === 400) {
         nextGameState.stage = STATES.PRIZE;
         nextGameState.points = 500;
         break;
@@ -56,7 +51,6 @@ export const goToNextState = (actualGameState) => {
       throw new Error(`Invalid game state. ${actualGameState}`);
   }
 
-  console.log("🚀 | goToNextState | nextGameState", nextGameState);
   setGameState(nextGameState);
   return nextGameState;
 }

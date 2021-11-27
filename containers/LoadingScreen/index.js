@@ -35,9 +35,7 @@ const LoadingScreen = ({
       <h1 style={{ marginBottom: 3 }}>Greetings, Jairo.</h1>
       <p style={{ marginTop: 0 }}>We were waiting for you.</p>
       <br></br>
-      <p>
-        Instructions: 
-      </p>
+      <span>Instructions:</span>
       <ul>
         <li>Find Wilmor a few times and you'll get a prize.</li>
         <li>You have a limited time of 5 minutes to complete the game.</li>
@@ -49,6 +47,7 @@ const LoadingScreen = ({
         ? <Button onClick={handleStartClick}>Empezar</Button>
         : <LoadingBar percentage={percentage} onLoaded={handleLoaded} />
       }
+      {/* fun fact: */}
     </div>
   )
 };

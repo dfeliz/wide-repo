@@ -4,6 +4,8 @@ import { STATES } from '../game/constants';
 import { Loading, Prize, Game } from '../containers';
 
 export default function Home() {
+  console.log("🚀 | current game state: ", gameState)
+
   // update ui using a counter... maybe?
   //   only if updating the imported state doesn't update the ui,
   //   which is highly probable
