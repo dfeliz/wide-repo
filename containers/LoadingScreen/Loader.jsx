@@ -26,6 +26,7 @@ const Loader = ({
         className={styles.loadingBar}
       >
         <Img
+          priority
           height={"54px"}
           src={LoadingBackground}
           alt="loading background img"
