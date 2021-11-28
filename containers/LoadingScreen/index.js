@@ -40,7 +40,7 @@ const LoadingScreen = ({
   return (
     <div className="centered loaderContainer">
       <h1 style={{ marginBottom: 3 }}>Greetings, Jairo.</h1>
-      <p style={{ marginTop: 0 }}>We were waiting for you.</p>
+      <p style={{ marginTop: 0, marginBottom: 0 }}>We were waiting for you! Wilmor is lost and he needs your help</p>
       <br></br>
       <span>Instructions:</span>
       <ul>

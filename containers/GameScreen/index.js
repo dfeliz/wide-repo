@@ -4,6 +4,7 @@ import { LEVEL_MAPS } from "./constants";
 import { Objective } from '../../components'
 import { getRandomPositionOfArea } from './helpers';
 import { gameState, goToNextState } from "../../game/gameStateMachine";
+import styles from '../../styles/Game.module.css';
 
 const GameScreen = () => {
   const [objectivePosition, setObjectivePosition] = useState({ x: 0, y: 0 });
@@ -42,12 +43,11 @@ const GameScreen = () => {
   return (
     <div>
       {renderObjective()}
-      <div ref={imgRef}>
+      <div ref={imgRef} className={styles.level}>
         <Img
           priority
           src={LEVEL_MAPS[gameState.stage]}
           width={document.body.offsetWidth}
-          // height={document.body.offsetHeight}
         />
       </div>
     </div>
