@@ -5,6 +5,8 @@ import hammer from '../../images/hammer.png';
 import prize from '../../images/prize.jpeg';
 import { Button } from '../../components';
 import Img from 'next/image';
+import gratz from '../../images/gratz.png';
+import happyb from '../../images/happyb.png';
 
 const PrizeScreen = () => {
   const [isButtonPressed, setButtonPressed] = useState(false);
@@ -19,6 +21,7 @@ const PrizeScreen = () => {
 
       setTimeout(() => {
         setPrizeClasses("prize smacked");
+
         setTimeout(() => {
           setShowConfetti(true);
         }, 1000);
@@ -37,15 +40,18 @@ const PrizeScreen = () => {
       }
 
       <div style={{ position: 'absolute', top: '15vh', left: '30vw', width: 400 }}>
+        {
+          showConfetti && (
+            <div style={{ position: 'absolute', top: -20, left: -200, height: 200, width: 400 }}>
+              <Img src={gratz} />
+            </div>
+          )
+        }
         <div className={`${hammerClasses}`} style={{ zIndex: 20 }}>
-          <Img
-            src={hammer}
-          />
+          <Img src={hammer} />
         </div>
-        <div className={`${prizeClasses}`} style={{ left: 300, width: 300 }}>
-          <Img
-            src={prize}
-          />
+        <div className={`${prizeClasses}`} style={{ display: 'flex',  left: 300, width: 300 }}>
+          <Img src={prize} />
         </div>
       </div>
       {
@@ -53,6 +59,14 @@ const PrizeScreen = () => {
           <Button style={{ position: 'absolute', bottom: '5vh', left: 0, right: 0, margin: 'auto' }} onClick={handleButtonPress}>
             Get your prize!
           </Button>
+        )
+      }
+
+      {
+        showConfetti && (
+          <div style={{ position: 'absolute', bottom: '20vh', left: '30vw', width: 400 }}>
+            <Img src={happyb} />
+          </div>
         )
       }
     </div>

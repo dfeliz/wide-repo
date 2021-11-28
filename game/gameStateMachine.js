@@ -15,7 +15,9 @@ export const goToNextState = (actualGameState) => {
   
   switch (actualGameState.stage) {
     case STATES.START:
-      nextGameState.stage = STATES.STAGE1;
+      // nextGameState.stage = STATES.STAGE1;
+      nextGameState.stage = STATES.PRIZE;
+      nextGameState.points = 500;
       break;
     case STATES.STAGE1:
       nextGameState.stage = STATES.STAGE2;
