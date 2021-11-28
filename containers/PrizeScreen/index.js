@@ -47,7 +47,7 @@ const PrizeScreen = () => {
       <div style={{ position: 'absolute', top: '15vh', left: '30vw', width: 400 }}>
         {
           showConfetti && (
-            <div style={{ position: 'absolute', top: -20, left: -200, height: 200, width: 400 }}>
+            <div style={{ position: 'absolute', top: -20, left: -200, height: 200, width: 400, zIndex: 10 }}>
               <Img src={gratz} priority />
             </div>
           )
@@ -61,7 +61,7 @@ const PrizeScreen = () => {
       </div>
       {
         !isButtonPressed && (
-          <Button style={{ position: 'absolute', bottom: '5vh', left: 0, right: 0, margin: 'auto', zIndex: 4000 }} onClick={handleButtonPress}>
+          <Button style={{ position: 'absolute', bottom: '5vh', left: 0, right: 0, margin: 'auto', zIndex: 10 }} onClick={handleButtonPress}>
             Get your prize!
           </Button>
         )
@@ -69,7 +69,7 @@ const PrizeScreen = () => {
 
       {
         showConfetti && (
-          <div style={{ position: 'absolute', bottom: '20vh', left: '30vw', width: 400 }}>
+          <div style={{ position: 'absolute', bottom: '20vh', left: '30vw', width: 400, zIndex: 10 }}>
             <Img src={happyb} />
           </div>
         )
