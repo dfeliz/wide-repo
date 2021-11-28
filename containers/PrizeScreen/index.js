@@ -11,6 +11,7 @@ import happyb from '../../images/happyb.png';
 const PrizeScreen = () => {
   const [isButtonPressed, setButtonPressed] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isHammerLoaded, setHammerLoaded] = useState(false);
 
   const [hammerClasses, setHammerClasses] = useState("hammer");
   const [prizeClasses, setPrizeClasses] = useState("prize");
@@ -33,6 +34,10 @@ const PrizeScreen = () => {
     setButtonPressed(true);
   }
 
+  const handleHammerLoaded = () => {
+    setHammerLoaded(true);
+  }
+
   return (
     <div className="inline" style={{ top: 0, width: '100vw', height: '100vh' }}>
       {
@@ -43,12 +48,12 @@ const PrizeScreen = () => {
         {
           showConfetti && (
             <div style={{ position: 'absolute', top: -20, left: -200, height: 200, width: 400 }}>
-              <Img src={gratz} />
+              <Img src={gratz} priority />
             </div>
           )
         }
         <div className={`${hammerClasses}`} style={{ zIndex: 20 }}>
-          <Img src={hammer} />
+          <Img src={hammer} onLoadingComplete={handleHammerLoaded} />
         </div>
         <div className={`${prizeClasses}`} style={{ display: 'flex',  left: 300, width: 300 }}>
           <Img src={prize} />

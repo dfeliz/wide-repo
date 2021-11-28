@@ -7,6 +7,7 @@ import { gameState, goToNextState } from "../../game/gameStateMachine";
 import styles from '../../styles/Game.module.css';
 
 const GameScreen = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [objectivePosition, setObjectivePosition] = useState({ x: 0, y: 0 });
   const [imgRect, setImgRect] = useState(null);
   
@@ -27,17 +28,24 @@ const GameScreen = () => {
     }
   }, [imgRect]);
 
+  const handleImageLoaded = () => {
+    setImageLoaded(true);
+  }
+
   const handleLevelClear = () => {
     goToNextState(gameState);
+    setImageLoaded(false);
   }
   
   const renderObjective = () => {
-    return (
-      <Objective
-        onClick={handleLevelClear}
-        position={objectivePosition}
-      />
-    )
+    if (imageLoaded) {
+      return (
+        <Objective
+          onClick={handleLevelClear}
+          position={objectivePosition}
+        />
+      )
+    };
   }
   
   return (
@@ -45,6 +53,7 @@ const GameScreen = () => {
       {renderObjective()}
       <div ref={imgRef} className={styles.level}>
         <Img
+          onLoadingComplete={handleImageLoaded}
           priority
           src={LEVEL_MAPS[gameState.stage]}
           width={document.body.offsetWidth}
