@@ -61,7 +61,7 @@ const PrizeScreen = () => {
       </div>
       {
         !isButtonPressed && (
-          <Button style={{ position: 'absolute', bottom: '5vh', left: 0, right: 0, margin: 'auto' }} onClick={handleButtonPress}>
+          <Button style={{ position: 'absolute', bottom: '5vh', left: 0, right: 0, margin: 'auto', zIndex: 4000 }} onClick={handleButtonPress}>
             Get your prize!
           </Button>
         )
