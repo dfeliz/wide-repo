@@ -47,7 +47,7 @@ const GameScreen = () => {
           priority
           src={LEVEL_MAPS[gameState.stage]}
           width={document.body.offsetWidth}
-          height={document.body.offsetHeight}
+          // height={document.body.offsetHeight}
         />
       </div>
     </div>
