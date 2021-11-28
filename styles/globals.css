@@ -27,6 +27,28 @@ h1, h2, h3, h4, h5, h6, p, li, a, button, div {
   transform: translate(-50%, -50%);
 }
 
+.inline {
+  display: flex;
+}
+
 .loaderContainer {
   width: 65vw;
+}
+
+.hammer {
+  position: absolute;
+  transition: all 0.25s ease-in;
+}
+
+.prize {
+  position: absolute;
+  transition: all 0.25s ease-in;
+}
+
+.smacked {
+  height: 150px;
+}
+
+.rotated {
+  transform: rotate(35deg);
 }

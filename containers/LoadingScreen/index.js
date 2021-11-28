@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import LoadingBar from './Loader';
 import { Button } from '../../components'
+import FunFact from '../../components/FunFact';
+import { funFacts } from '../../game/constants';
 
 const LoadingScreen = ({
   onNextClick,
 }) => {
   const [percentage, setPercentage] = useState(0);
   const [startButtonVisible, setStartButtonVisible] = useState(false);
+  const [funFactMessage, setFunFactMessage] = useState("");
 
   useEffect(() => {
     loadFakely();
@@ -30,6 +33,10 @@ const LoadingScreen = ({
     onNextClick();
   }
 
+  const handleFunFactClick = () => {
+    setFunFactMessage(getRandomFunFact());
+  }
+
   return (
     <div className="centered loaderContainer">
       <h1 style={{ marginBottom: 3 }}>Greetings, Jairo.</h1>
@@ -47,7 +54,9 @@ const LoadingScreen = ({
         ? <Button onClick={handleStartClick}>Empezar</Button>
         : <LoadingBar percentage={percentage} onLoaded={handleLoaded} />
       }
-      {/* fun fact: */}
+      <div>
+        <FunFact message={funFactMessage} />
+      </div>
     </div>
   )
 };

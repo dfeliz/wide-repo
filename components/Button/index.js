@@ -1,11 +1,12 @@
 import styles from '../../styles/Button.module.css'
 
 const Button = ({
+  style,
   onClick,
   children,
 }) => {
   return (
-    <div className={styles.cButtonContainer}>
+    <div className={styles.cButtonContainer} style={style}>
       <div
         className={styles.cButton}
         onClick={onClick}>
